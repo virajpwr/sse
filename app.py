@@ -34,6 +34,22 @@ if genre == 'Statistics':
     st.image(image_stats, width=250,
              caption='Descriptive statistics of Var A and Var B')
 
+    st.text('----------------------- Confidence interval of Var A and Var B------------------------')
+    st.write("""
+    - The 95% confidence interval of Var A and Var B is [797.4, 831.4] and [871.45, 913.02] respectively.
+    - since the CI of Var A and Var B does not overlap, we can conclude that the mean of Var A and Var B are significantly different.
+    """)
+    # insert image
+    image_ci = Image.open(
+        './plots/descriptive/ci_vara.jpg')
+    st.image(image_ci, width=500,
+             caption='Confidence interval of Var A')
+
+    image_ci = Image.open(
+        './plots/descriptive/ci_varb.jpg')
+    st.image(image_ci, width=500,
+             caption='Confidence interval of Var A')
+
     st.markdown('There are no missing values in the dataset.')
     st.write("""
     Distribution of population
@@ -61,7 +77,7 @@ if genre == 'Statistics':
         './plots/descriptive/anova2.jpg')
     st.image(image_stats, width=600, caption='ANOVA')
 
-if genre=='Trend':
+if genre == 'Trend':
     st.header('Trend of Var A and Var B')
     st.text('----------------------------------------- Box Plots---------------------------------------------')
     st.markdown('Box plots of Var A and Var B for year')
@@ -101,7 +117,7 @@ if genre=='Trend':
     """)
     image_stats = Image.open('./plots/descriptive/trend_1.jpg')
     st.image(image_stats, width=750, caption='Line plots of Var A and Var B')
-    
+
     st.markdown('Trend of Var A and Var B over year for different months')
     st.write("""
     - The trend line shows trend of var a and var b from  201to 2019.   
@@ -109,6 +125,26 @@ if genre=='Trend':
     - We can see that in 2015 the minimum for var a and var b was in August. """)
     image_stats = Image.open('./plots/descriptive/trend_2.jpg')
     st.image(image_stats, width=750, caption='Trend of Var A and Var B')
+
+    st.markdown('Trend of Var A and Var B over different years with CI')
+    st.write("""
+    - The line plot shows the trend of Var_A and Var_B with respect to year with blue line as mean value and the  shaded area as 95% confidence interval. 
+    - We can see the due to outliers the confidence interval is very wide for the year 2018 and 2019 for Var A and Var B compared to other years.
+    """)
+
+    image_stats = Image.open('./plots/descriptive/line_year.jpg')
+    st.image(image_stats, width=750,
+             caption='Trend of Var A and Var B over year and CI')
+
+    st.markdown('Trend of Var A and Var B over different months with CI')
+    st.write("""
+    - The line plot shows the trend of Var_A and Var_B with respect to month with blue line as mean value and the shaded area as 95% confidence interval.    
+    - We can see the due to outliers the confidence interval is very wide for the month of June, July and August for Var A and Var B compared to other months.
+    """)
+
+    image_stats = Image.open('./plots/descriptive/line_month.jpg')
+    st.image(image_stats, width=750,
+             caption='Trend of Var A and Var B over year and CI')
 
     st.text('-------------------------------------Relation between continous variables---------------------------------------------')
     st.write("""
