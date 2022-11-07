@@ -45,8 +45,8 @@ if genre == 'Statistics':
     st.text('----------------------- Confidence interval of Var A and Var B------------------------')
     st.write("""
     - The 95% confidence interval of Var A and Var B is [797.4, 831.4] and [871.45, 913.02] respectively. 
-    - The 95% CI was calculated on bootstrap samples of 1000 samples using sampling with replacement technique since there outliers. 
-    - since the CI of Var A and Var B does not overlap, we can conclude that the mean of Var A and Var B are significantly different.
+    - The 95% CI was calculated on bootstrap samples of 1000 samples using sampling with replacement technique since there are outliers in Var A and Var B. 
+    - Since the CI of Var A and Var B does not overlap, we can conclude that the mean of Var A and Var B are significantly different.
     """)
     # insert image
     image_ci = Image.open(
@@ -76,8 +76,8 @@ if genre == 'Statistics':
         './plots/descriptive/ttest.jpg')
     st.image(image_stats, width=600, caption='t-test')
     st.markdown('ANOVA')
-    st.write("Performed one way ANOVA to check difference in year and month for variable Var A and Var B with alpha=0.05.")
-    st.write('There is no significant difference in the means of Var A for the years 2010 to 2019. However, there is a significant difference in the means of Var A for the months Jan to Dec.')
+    st.write("Performed one way ANOVA to see if there is significant difference in year and month for variable Var A and Var B with alpha=0.05.")
+    st.write('From the test result of One way ANOVA test shown below, there is no significant difference in the means of Var A for the years 2010 to 2019. However, there is a significant difference in the means of Var A for the months Jan to Dec.')
     image_stats = Image.open(
         './plots/descriptive/anova.jpg')
     st.image(image_stats, width=600, caption='ANOVA')
@@ -91,18 +91,17 @@ if genre == 'Trend':
     st.text('----------------------------------------- Box Plots---------------------------------------------')
     st.markdown('Box plots of Var A and Var B for year')
     st.write("""
-    - The distribution Var A and Var B in different years shows there are outliers in year 2018 and 2019.
+    - The distribution Var A and Var B in different years shows there are outliers in year 2018 and 2019 marked by 'x' in the box plots shown below.
     - The data points are considered outlier when a data lies outside of 𝜇±2⋅7𝜎.
     - Var A: The distribution has similar median across the years. The Interquartile range are similar, and the distribution are similar across the years with little to no skewness. The minimum value of Var A in year 2015 is much lower compared to other years and is left skewed. 
     - Var B: The distribution has similar median from year  2012 to 2017. However, for year 2010,2011,2018, and 2019 the median is significantly different to years from 2012 to 2017. The distribution is right skewed in year 2019 and left skewed in 2015.
-
     """)
     image_stats = Image.open('./plots/descriptive/box_1.jpg')
     st.image(image_stats, width=750, caption='Box plots of Var A and Var B')
     st.markdown('Box plots of Var A and Var B for Month')
     st.write("""
     - The box plot shows distribution of Var A and Var B over different months.
-    - The distribution shows there are outliers in the month of  Apr, June, July, August in Var A and Feb, June, July, August Var B.
+    - The distribution shows there are outliers in the month of  Apr, June, July, August, Sep and Nov in Var A and Feb, June, July, August Var B.
     - The IQR and range for Var A is much smaller compared to IQR  and range of Var B.
     - Var B distributions are right skewed. While distribution of few months are skewed in Var A.
     - Both variable sees a trend of decreasing median by the month of June and increasing in the towards the month of December.
@@ -117,11 +116,11 @@ if genre == 'Trend':
     Means over year:
     - The line plot show the trend of Var A mean and Var B median over Year and month
     - The mean Var A is the lowest in the year 2019 and highest in year 2018.
-    - The means of Var A is significantly lower than means of Var B over the from 2015 to 2019.
+    - The means of Var B is significantly higher than means of Var A.
     - The var B sees a downward trend till 2015 and an upward trend from 2015 to 2019.
      Medians over Months:
     - Median is chosen to because of non-symmetric distribution of Var A an Var B in different months
-    - The median of Var A is Var B is lowest in the month of June and highest in December.
+    - The median of Var A and Var B is lowest in the month of June and highest in December.
     - Both variable show an downward trend from Jan to June and an upward trend from June to December.
     """)
     image_stats = Image.open('./plots/descriptive/trend_1.jpg')
@@ -129,15 +128,16 @@ if genre == 'Trend':
 
     st.markdown('Trend of Var A and Var B over year for different months')
     st.write("""
-    - The trend line shows trend of var a and var b from  201to 2019.   
+    - The trend line shows trend of var A and var B from  2010 to 2019.   
     - We can see the two outliers present in 2018 for Var A and Var B in the month of June and July.
-    - We can see that in 2015 the minimum for var a and var b was in August. """)
+    - We can see that in 2015 the minimum for var a and var b was in August.
+     """)
     image_stats = Image.open('./plots/descriptive/trend_2.jpg')
     st.image(image_stats, width=750, caption='Trend of Var A and Var B')
 
     st.markdown('Trend of Var A and Var B over different years with CI')
     st.write("""
-    - The line plot shows the trend of Var_A and Var_B with respect to year with blue line as mean value and the  shaded area as 95% confidence interval. 
+    - The line plot shows the trend of Var A and Var B with respect to year with blue line as mean value and the shaded blue area is 95% confidence interval. 
     - We can see the due to outliers the confidence interval is very wide for the year 2018 and 2019 for Var A and Var B compared to other years.
     """)
 
@@ -147,8 +147,8 @@ if genre == 'Trend':
 
     st.markdown('Trend of Var A and Var B over different months with CI')
     st.write("""
-    - The line plot shows the trend of Var_A and Var_B with respect to month with blue line as mean value and the shaded area as 95% confidence interval.    
-    - We can see the due to outliers the confidence interval is very wide for the month of June, July and August for Var A and Var B compared to other months.
+    - The line plot shows the trend of Var A and Var B with respect to month with blue line as mean value and the shaded area as 95% confidence interval.    
+    - Similar to the line plot above we can se that due to outliers the confidence interval is wider for the month of June, July and August for Var A and Var B compared to other months.
     """)
 
     image_stats = Image.open('./plots/descriptive/line_month.jpg')
@@ -177,11 +177,17 @@ if genre == 'outliers and transformation':
     st.write("""
     - Bar plot below shows the outliers in Var A and Var B grouped by year and month. The data points are considered outlier when a data lies outside of 𝜇±2⋅7𝜎. 
     - The Var A and Var B have same number of outliers in year 2018 and 2019.
-    - When the outliers are grouped by month, Var A has more outliers than Var B.
-    - Both variables haave outliers in the month of Jun, Jul, Aug, Sep. 
+    - Var A has more outliers than Var B for different months when the outliers are found in each month.
+    - Both variables have outliers in the month of Jun, Jul, Aug, Sep. 
     """)
     image_stats = Image.open('./plots/descriptive/outliers.jpg')
     st.image(image_stats, width=750, caption='Outliers in Var A and Var B')
+    
+    st.write(""" To deal with outliers we can use different methods like:
+    - Removing outliers 
+    - Log transformation of Var A and Var B
+    - Imputing outliers with median
+    """)
     st.text('------------------------------------- removing outliers ---------------------------------------------')
     # st.markdown('Removing outliers in Var A and Var B')
     # st.write("""
@@ -191,7 +197,7 @@ if genre == 'outliers and transformation':
     
     st.markdown('Removing outliers in Var A and Var B over year')
     st.write("""
-    - From the line plot below we can see that removing the outliers in Var A and Var B.
+    - From the line plot below we can see the trend of Var A and Var b after removing the outliers.
     - The mean of  Var A and Var B and the confidence interval for year 2018 and 2019 changes and we can see that there is no data for the month of july for both years.""")
     image_stats = Image.open('./plots/descriptive/outliers_removed.jpg') 
     st.image(image_stats, width=750, caption='Removing outliers in Var A and Var B')
