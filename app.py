@@ -7,11 +7,12 @@ from sklearn.ensemble import RandomForestRegressor
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.title('SSE Task')
-st.subheader('The task is to perform EDA on the data provided.')
-st.subheader('Please select the options in the sidebar to see the EDA.')
+st.subheader('The task is to perform EDA on the dataset.')
+
+st.subheader('**Please select the options on the sidebar to see the EDA.**')
 genre = st.sidebar.radio(
     "Please select type",
-    ('Statistics', 'Trend'))
+    ('Statistics', 'Trend','outliers and transformation'))
 
 # chart_select = st.sidebar.selectbox(
 #     label ="Type of chart",
@@ -33,10 +34,18 @@ if genre == 'Statistics':
         './plots/descriptive/stats.jpg')
     st.image(image_stats, width=250,
              caption='Descriptive statistics of Var A and Var B')
+    st.write("""
+    - Shapiro-Wilk test result show that Var A is not normally distributed and Var B is normally distributed. 
+    """)
+    image_ci = Image.open(
+        './plots/descriptive/gaussian.jpg')
+    st.image(image_ci, width=450,
+             caption='Shapiro-Wilk test result')
 
     st.text('----------------------- Confidence interval of Var A and Var B------------------------')
     st.write("""
-    - The 95% confidence interval of Var A and Var B is [797.4, 831.4] and [871.45, 913.02] respectively.
+    - The 95% confidence interval of Var A and Var B is [797.4, 831.4] and [871.45, 913.02] respectively. 
+    - The 95% CI was calculated on bootstrap samples of 1000 samples using sampling with replacement technique since there outliers. 
     - since the CI of Var A and Var B does not overlap, we can conclude that the mean of Var A and Var B are significantly different.
     """)
     # insert image
@@ -153,13 +162,77 @@ if genre == 'Trend':
     """)
     image_stats = Image.open('./plots/descriptive/corr.jpg')
     st.image(image_stats, width=850, caption='Relation between Var A and Var B')
-# if genre == 'Trend':
-#     st.header('Box plots')
-#     st.markdown('The box plots below show the distribution of Var A and Var B for the years 2010 to 2019 and for the months Jan to Dec.')
-#     image_stats = Image.open(
-#         r'./plots/boxplots/boxplot.jpg')
-#     st.image(image_stats, width=600, caption='Box plots')
-#     st.markdown('The box plots below show the distribution of Var A and Var B for the years 2010 to 2019 and for the months Jan to Dec.')
-#     image_stats = Image.open(
-#         r'./plots/boxplots/boxplot2.jpg')
-#     st.image(image_stats, width=600, caption='Box plots')
+
+if genre == 'outliers and transformation':
+    st.text('------------------------------------- Outliers ---------------------------------------------')
+    # st.markdown('Outliers in Var A and Var B')
+    # st.write("""
+    # - The box plot shows the outliers present in Var A and Var B. """)
+    # image_stats = Image.open('./plots/descriptive/out_vara.jpg')
+    # st.image(image_stats, width=500, caption='Outliers in Var A and Var B')
+    # image_stats = Image.open('./plots/descriptive/out_var_a_b.jpg')
+    # st.image(image_stats, width=500, caption='Distribution of  Var A and Var B')
+
+    st.markdown('Outliers in Var A and Var B grouped by year and month')
+    st.write("""
+    - Bar plot below shows the outliers in Var A and Var B grouped by year and month. The data points are considered outlier when a data lies outside of 𝜇±2⋅7𝜎. 
+    - The Var A and Var B have same number of outliers in year 2018 and 2019.
+    - When the outliers are grouped by month, Var A has more outliers than Var B.
+    - Both variables haave outliers in the month of Jun, Jul, Aug, Sep. 
+    """)
+    image_stats = Image.open('./plots/descriptive/outliers.jpg')
+    st.image(image_stats, width=750, caption='Outliers in Var A and Var B')
+    st.text('------------------------------------- removing outliers ---------------------------------------------')
+    # st.markdown('Removing outliers in Var A and Var B')
+    # st.write("""
+    # - Distribution of Var A and Var B after removing outliers. """)
+    # image_stats = Image.open('./plots/descriptive/dist_not_outliers.jpg')
+    # st.image(image_stats, width=650, caption='Distribution of Var A and Var B after removing outliers')
+    
+    st.markdown('Removing outliers in Var A and Var B over year')
+    st.write("""
+    - From the line plot below we can see that removing the outliers in Var A and Var B.
+    - The mean of  Var A and Var B and the confidence interval for year 2018 and 2019 changes and we can see that there is no data for the month of july for both years.""")
+    image_stats = Image.open('./plots/descriptive/outliers_removed.jpg') 
+    st.image(image_stats, width=750, caption='Removing outliers in Var A and Var B')
+
+    image_stats = Image.open('./plots/descriptive/outliers_removed_ci.jpg') 
+    st.image(image_stats, width=750, caption='Removing outliers in Var A and Var B')
+
+    st.text('------------------------------------- Log transformation ---------------------------------------------')
+    st.markdown('Log transformation of Var A and Var B')
+    st.write("""
+    - Log transformation is performed to reduce the variation caused by the outliers.
+    - Log transformation de-emphasizes the extreme values and makes the distribution more normal.
+    - The trend of log transformed Var A and Var B is similar to the original data. However the influence of outliers is reduced.
+    """)
+    image_stats = Image.open('./plots/descriptive/trend_log.jpg')
+    st.image(image_stats, width=600, caption='Trend of log tranformed Var A and Var B')
+    image_stats = Image.open('./plots/descriptive/vara_log.jpg')
+    st.image(image_stats, width=600, caption='Distributio log tranformed Var A and Var A')
+    image_stats = Image.open('./plots/descriptive/varb_log.jpg')
+    st.image(image_stats, width=600, caption='Distributio log tranformed Var B and Var B')
+    st.text('------------------------------------- Imputing outliers with median ---------------------------------------------')
+    st.markdown('Imputing outliers with median')
+    st.write("""
+    - the outliers are imputed with median of the respective year and month.
+    - By imputing the outliers with median the confidence interval for year 2018 and 2019 changes significantly.
+    - The mean and confidence interval for month of June and July for Var A and Var B has changed significantly.
+    - The 95% confidence interval for month of June and July for Var A and Var B is very narrow.
+    - The 95% CI for Var A and Var B is [803.57, 829.14] and [868.59 905.02] respectively.
+    """)
+    image_stats = Image.open('./plots/imputed/ci_year.jpg')
+    st.image(image_stats, width=600, caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
+
+    image_stats = Image.open('./plots/imputed/ci_months.jpg')
+    st.image(image_stats, width=600, caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
+
+    image_stats = Image.open('./plots/imputed/mean_trend_year.jpg')
+    st.image(image_stats, width=600, caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
+    
+    image_stats = Image.open('./plots/imputed/mean_trend_month.jpg')
+    st.image(image_stats, width=600, caption='Trend of Var A and Var B with respect to month after imputation of outliers with median')
+    
+    image_stats = Image.open('./plots/imputed/distribution.jpg')
+    st.image(image_stats, width=600, caption='Distirbution of Var A and Var B after imputation of outliers with median')
+    
