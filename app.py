@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestRegressor
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.title('SSE Task')
-st.subheader('The task is to perform EDA on the dataset.')
+st.subheader('The task is to explore the data to reveal any seasonality or trends')
 
 st.subheader('**Please select the options on the sidebar to see the EDA.**')
 genre = st.sidebar.radio(
