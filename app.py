@@ -229,7 +229,7 @@ if genre == 'outliers and transformation':
     st.text('------------------------------------- Imputing outliers with median ---------------------------------------------')
     st.markdown('Imputing outliers with median')
     st.write("""
-    - the outliers are imputed with median of the respective year and month.
+    - the outliers are imputed grouped by median of the month.
     - By imputing the outliers with median the confidence interval for year 2018 and 2019 changes significantly.
     - The mean and confidence interval for month of June and July for Var A and Var B has changed significantly.
     - The 95% confidence interval for month of June and July for Var A and Var B has changed from the original data and is very narrow.
@@ -265,3 +265,10 @@ if genre == 'outliers and transformation':
     image_stats = Image.open('./plots/imputed/scatter.jpg')
     st.image(image_stats, width=750,
              caption='Scatter plot of Var A and Var B after imputation of outliers with median')
+
+    st.write("""
+    - I performed three methods to deal with outliers in Var A and Var B in the analysis.
+    - Deletion of outliers - The outliers were removed which causes loss of data points and it changes the point estimates and confidence interval. There is loss of information in the data when performing analysis.
+    - Log transformation - Log of Var A and Var B was taken to reduce the variation caused by the outliers. The trend of log transformed Var A and Var B is similar to the original data. However the influence of outliers is reduced.
+    - Imputing outliers with median - The outliers are imputed grouped by median of the month. There is no loss of data by imputation.
+    """)
