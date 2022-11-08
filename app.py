@@ -217,13 +217,13 @@ if genre == 'outliers and transformation':
     - The trend of log transformed Var A and Var B is similar to the original data. However the influence of outliers is reduced.
     """)
     image_stats = Image.open('./plots/descriptive/trend_log.jpg')
-    st.image(image_stats, width=600,
+    st.image(image_stats, width=700,
              caption='Trend of log tranformed Var A and Var B')
     image_stats = Image.open('./plots/descriptive/vara_log.jpg')
-    st.image(image_stats, width=600,
+    st.image(image_stats, width=700,
              caption='Distributio log tranformed Var A and Var A')
     image_stats = Image.open('./plots/descriptive/varb_log.jpg')
-    st.image(image_stats, width=600,
+    st.image(image_stats, width=700,
              caption='Distributio log tranformed Var B and Var B')
     st.text('------------------------------------- Imputing outliers with median ---------------------------------------------')
     st.markdown('Imputing outliers with median')
