@@ -231,8 +231,9 @@ if genre == 'outliers and transformation':
     - the outliers are imputed with median of the respective year and month.
     - By imputing the outliers with median the confidence interval for year 2018 and 2019 changes significantly.
     - The mean and confidence interval for month of June and July for Var A and Var B has changed significantly.
-    - The 95% confidence interval for month of June and July for Var A and Var B is very narrow.
-    - The 95% CI for Var A and Var B is [803.57, 829.14] and [868.59 905.02] respectively.
+    - The 95% confidence interval for month of June and July for Var A and Var B has changed from the original data and is very narrow.
+    - The 95% CI for Var A and Var B has changeed to [803.57, 829.14] and [868.59 905.02] respectively.
+    - We do not lose any data points by imputing the outliers with median.
     """)
     image_stats = Image.open('./plots/imputed/ci_year.jpg')
     st.image(image_stats, width=750,
@@ -253,3 +254,11 @@ if genre == 'outliers and transformation':
     image_stats = Image.open('./plots/imputed/distribution.jpg')
     st.image(image_stats, width=750,
              caption='Distirbution of Var A and Var B after imputation of outliers with median')
+    st.markdown('Scatter plot of Var A and Var B after imputation of outliers with median')
+    st.write("""
+    - The scatter plot below shows the relationship between Var A and Var B after imputation of outliers with median.
+    - We can see heteroscedasticity in the scatter plot. The variance of Var B increases as the value of Var A increases.
+    - The extreme outlliers are removed and the relationship between Var A and Var B is not affected.
+    """)
+    image_stats = Image.open('./plots/imputed/scatter.jpg')
+    st.image(image_stats, width=750, caption='Scatter plot of Var A and Var B after imputation of outliers with median')
