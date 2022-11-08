@@ -7,12 +7,14 @@ from sklearn.ensemble import RandomForestRegressor
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.title('SSE Task')
-st.subheader('The task is to explore the data to reveal any seasonality or trends')
+st.subheader(
+    'The task is to explore the data to reveal any seasonality or trends')
 
-st.subheader('**Please select the options on the sidebar to see different analysis performed on the data**')
+st.subheader(
+    '**Please select the options on the sidebar to see different analysis performed on the data**')
 genre = st.sidebar.radio(
     "Please select type",
-    ('Statistics', 'Trend','outliers and transformation'))
+    ('Statistics', 'Trend', 'outliers and transformation'))
 
 # chart_select = st.sidebar.selectbox(
 #     label ="Type of chart",
@@ -182,7 +184,7 @@ if genre == 'outliers and transformation':
     """)
     image_stats = Image.open('./plots/descriptive/outliers.jpg')
     st.image(image_stats, width=750, caption='Outliers in Var A and Var B')
-    
+
     st.write(""" To deal with outliers we can use different methods like:
     - Removing outliers 
     - Log transformation of Var A and Var B
@@ -194,16 +196,18 @@ if genre == 'outliers and transformation':
     # - Distribution of Var A and Var B after removing outliers. """)
     # image_stats = Image.open('./plots/descriptive/dist_not_outliers.jpg')
     # st.image(image_stats, width=650, caption='Distribution of Var A and Var B after removing outliers')
-    
+
     st.markdown('Removing outliers in Var A and Var B over year')
     st.write("""
     - From the line plot below we can see the trend of Var A and Var b after removing the outliers.
     - The mean of  Var A and Var B and the confidence interval for year 2018 and 2019 changes and we can see that there is no data for the month of july for both years.""")
-    image_stats = Image.open('./plots/descriptive/outliers_removed.jpg') 
-    st.image(image_stats, width=750, caption='Removing outliers in Var A and Var B')
+    image_stats = Image.open('./plots/descriptive/outliers_removed.jpg')
+    st.image(image_stats, width=750,
+             caption='Removing outliers in Var A and Var B')
 
-    image_stats = Image.open('./plots/descriptive/outliers_removed_ci.jpg') 
-    st.image(image_stats, width=750, caption='Removing outliers in Var A and Var B')
+    image_stats = Image.open('./plots/descriptive/outliers_removed_ci.jpg')
+    st.image(image_stats, width=750,
+             caption='Removing outliers in Var A and Var B')
 
     st.text('------------------------------------- Log transformation ---------------------------------------------')
     st.markdown('Log transformation of Var A and Var B')
@@ -213,11 +217,14 @@ if genre == 'outliers and transformation':
     - The trend of log transformed Var A and Var B is similar to the original data. However the influence of outliers is reduced.
     """)
     image_stats = Image.open('./plots/descriptive/trend_log.jpg')
-    st.image(image_stats, width=600, caption='Trend of log tranformed Var A and Var B')
+    st.image(image_stats, width=600,
+             caption='Trend of log tranformed Var A and Var B')
     image_stats = Image.open('./plots/descriptive/vara_log.jpg')
-    st.image(image_stats, width=600, caption='Distributio log tranformed Var A and Var A')
+    st.image(image_stats, width=600,
+             caption='Distributio log tranformed Var A and Var A')
     image_stats = Image.open('./plots/descriptive/varb_log.jpg')
-    st.image(image_stats, width=600, caption='Distributio log tranformed Var B and Var B')
+    st.image(image_stats, width=600,
+             caption='Distributio log tranformed Var B and Var B')
     st.text('------------------------------------- Imputing outliers with median ---------------------------------------------')
     st.markdown('Imputing outliers with median')
     st.write("""
@@ -228,17 +235,21 @@ if genre == 'outliers and transformation':
     - The 95% CI for Var A and Var B is [803.57, 829.14] and [868.59 905.02] respectively.
     """)
     image_stats = Image.open('./plots/imputed/ci_year.jpg')
-    st.image(image_stats, width=600, caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
+    st.image(image_stats, width=750,
+             caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
 
     image_stats = Image.open('./plots/imputed/ci_months.jpg')
-    st.image(image_stats, width=600, caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
+    st.image(image_stats, width=750,
+             caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
 
     image_stats = Image.open('./plots/imputed/mean_trend_year.jpg')
-    st.image(image_stats, width=600, caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
-    
+    st.image(image_stats, width=750,
+             caption='Trend of Var A and Var B with respect to year after imputation of outliers with median')
+
     image_stats = Image.open('./plots/imputed/mean_trend_month.jpg')
-    st.image(image_stats, width=600, caption='Trend of Var A and Var B with respect to month after imputation of outliers with median')
-    
+    st.image(image_stats, width=750,
+             caption='Trend of Var A and Var B with respect to month after imputation of outliers with median')
+
     image_stats = Image.open('./plots/imputed/distribution.jpg')
-    st.image(image_stats, width=600, caption='Distirbution of Var A and Var B after imputation of outliers with median')
-    
+    st.image(image_stats, width=750,
+             caption='Distirbution of Var A and Var B after imputation of outliers with median')
