@@ -11,7 +11,7 @@ st.subheader(
     'The task is to explore the data to reveal any seasonality or trends.')
 
 st.subheader(
-    '**<---- Please select the options on the sidebar to see different analysis performed on the data.**')
+    '**Please select the options on the sidebar to see different analysis performed on the data.**')
 genre = st.sidebar.radio(
     "Please select type",
     ('Statistics', 'Trend', 'outliers and transformation'))
