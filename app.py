@@ -229,7 +229,7 @@ if genre == 'outliers and transformation':
     st.text('------------------------------------- Imputing outliers with median ---------------------------------------------')
     st.markdown('Imputing outliers with median')
     st.write("""
-    - the outliers are imputed grouped by median of the month.
+    - The outliers are imputed grouped by median of the month.
     - By imputing the outliers with median the confidence interval for year 2018 and 2019 changes significantly.
     - The mean and confidence interval for month of June and July for Var A and Var B has changed significantly.
     - The 95% confidence interval for month of June and July for Var A and Var B has changed from the original data and is very narrow.
