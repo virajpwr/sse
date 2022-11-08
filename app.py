@@ -44,6 +44,17 @@ if genre == 'Statistics':
     st.image(image_ci, width=450,
              caption='Shapiro-Wilk test result')
 
+    st.markdown('**There are no missing values in the dataset.**')
+    st.write("""
+    Distribution of population
+    - The skewness suggest that Var A and Var B are not skewed.
+    - Kurtosis of Var A value 4.32 > 3 suggest there are outliers.
+    - Kurtosis of Var B suggest negative kurtosis.
+    """)
+    image_stats = Image.open(
+        './plots/descriptive/skewness.jpg')
+    st.image(image_stats, width=250, caption='distribution of Var A and Var B')
+
     st.text('----------------------- Confidence interval of Var A and Var B------------------------')
     st.write("""
     - The 95% confidence interval of Var A and Var B is [797.4, 831.4] and [871.45, 913.02] respectively. 
@@ -61,16 +72,6 @@ if genre == 'Statistics':
     st.image(image_ci, width=500,
              caption='Confidence interval of Var A')
 
-    st.markdown('There are no missing values in the dataset.')
-    st.write("""
-    Distribution of population
-    - The skewness suggest that Var A and Var B are not skewed.
-    - Kurtosis of Var A value 4.32 > 3 suggest there are outliers.
-    - Kurtosis of Var B suggest negative kurtosis.
-    """)
-    image_stats = Image.open(
-        './plots/descriptive/skewness.jpg')
-    st.image(image_stats, width=250, caption='distribution of Var A and Var B')
     st.text('----------------------- statistical tests---------------------------------------------')
     st.markdown('Independent two sample t-test')
     st.write("Performed independent two sample t-test to check if the means of Var A and Var B are significantly different with alpa = 0.05. The p-value is 0.000 which is less than 0.05. Hence, we reject the null hypothesis and conclude that the means of Var A and Var B are significantly different.")
@@ -254,11 +255,13 @@ if genre == 'outliers and transformation':
     image_stats = Image.open('./plots/imputed/distribution.jpg')
     st.image(image_stats, width=750,
              caption='Distirbution of Var A and Var B after imputation of outliers with median')
-    st.markdown('Scatter plot of Var A and Var B after imputation of outliers with median')
+    st.markdown(
+        'Scatter plot of Var A and Var B after imputation of outliers with median')
     st.write("""
     - The scatter plot below shows the relationship between Var A and Var B after imputation of outliers with median.
     - We can see heteroscedasticity in the scatter plot. The variance of Var B increases as the value of Var A increases.
     - The extreme outlliers are removed and the relationship between Var A and Var B is not affected.
     """)
     image_stats = Image.open('./plots/imputed/scatter.jpg')
-    st.image(image_stats, width=750, caption='Scatter plot of Var A and Var B after imputation of outliers with median')
+    st.image(image_stats, width=750,
+             caption='Scatter plot of Var A and Var B after imputation of outliers with median')
