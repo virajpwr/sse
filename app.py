@@ -117,16 +117,21 @@ if genre == 'Statistics':
     st.write("""
     - Performed ANOVA to check if the means of Var A and Var B are significantly different for year 2010 - 2019 with alpa = 0.05.
     - Since Var A and Var B does not voilate the assumption of normality in different years, we can use ANOVA.
+     The null hypothesis is that there is no significant difference among the years mean for the variable.
     - there is no statistically significant difference in means for variable Var A in different years and while there is a statistically significant difference in the means of Var B in different years at alpha = 0.05.
     """)
-    st.write('From the test result of One way ANOVA test shown below, there is no significant difference in the means of Var A for the years 2010 to 2019. However, there is a significant difference in the means of Var A for the months Jan to Dec.')
     image_stats = Image.open(
         './plots/descriptive/anova.jpg')
     st.image(image_stats, width=600, caption='ANOVA')
-    st.write('There is significant difference in the means of Var B for the years 2010 to 2019 and for the months Jan to Dec.')
+    st.write("""
+    - Performed Kruskal-Wallis non parametric test to test if the Var A in different months have the same central tendency.
+    - Non-parametric test is performed since the distribution of var A and Var B in different months does not follow normal distribution.
+    - The null hypthesis is that mean ranks of the years are same.
+    - Based on the table below we can say that the months have different distributions for Var A and Var B.
+    """)
     image_stats = Image.open(
         './plots/descriptive/anova2.jpg')
-    st.image(image_stats, width=600, caption='ANOVA')
+    st.image(image_stats, width=600, caption='Kruskal-Wallis Test')
 
 if genre == 'Trend':
     st.header('Trend of Var A and Var B')
