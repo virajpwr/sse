@@ -123,6 +123,7 @@ if genre == 'Statistics':
     image_stats = Image.open(
         './plots/descriptive/anova.jpg')
     st.image(image_stats, width=600, caption='ANOVA')
+    st.markdown('Kruskal-Wallis Test')
     st.write("""
     - Performed Kruskal-Wallis non parametric test to test if the Var A in different months have the same central tendency.
     - Non-parametric test is performed since the distribution of var A and Var B in different months does not follow normal distribution.
