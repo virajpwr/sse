@@ -55,6 +55,14 @@ if genre == 'Statistics':
         './plots/descriptive/skewness.jpg')
     st.image(image_stats, width=250, caption='distribution of Var A and Var B')
 
+    st.markdown(**The fig below show the discriptive statistics of Var A and Var B for each year.**)
+
+    image_stats = Image.open('./plots/descriptive/yearly_stats.jpg')
+
+    st.image(image_stats, width=250, caption='Descriptive statistics of Var A and Var B for each year')
+    st.markdown('**The fig below show the discriptive statistics of Var A and Var B for each month.**')
+    image_stats = Image.open('./plots/descriptive/monthly_stats.jpg')
+    st.image(image_stats, width=250, caption='Descriptive statistics of Var A and Var B for each month')
     st.text('----------------------- Confidence interval of Var A and Var B------------------------')
     st.write("""
     - The 95% confidence interval of Var A and Var B is [797.4, 831.4] and [871.45, 913.02] respectively. 
