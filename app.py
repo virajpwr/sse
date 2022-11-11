@@ -56,12 +56,36 @@ if genre == 'Statistics':
     st.image(image_stats, width=250, caption='distribution of Var A and Var B')
 
     st.markdown('**The fig below show the discriptive statistics of Var A and Var B for each year.**')
+    st.write("""
+    Var A: 
+    - The lowest mean grouped by year is in 2015 with 798 and the highest is 2018 with 840.
+    - The lowest range grouped by year is 2011 with 240 and the highest is 2018 with 791. Since range is influenced by outliers, there are outliers in the year 2018 and 2019.
+    This can be confirmed by IQR method later.
+    Var B:
+    - The lowest mean grouped by year is 807.9 and highest is 990.1 in 2015 and 2018 respectively.
+    - The lowest range grouped by year is 185 and highest is 786 in 2010 and 2018 respectively. Since range in influenced by outliers, there are outliers in the year 2018 and 2019.
+    This can be confirmed by IQR method later.
+    """)
 
+    
     image_stats = Image.open('./plots/descriptive/yearly_stats.jpg')
 
     st.image(image_stats, width=650, caption='Descriptive statistics of Var A and Var B for each year')
     st.markdown('**The fig below show the discriptive statistics of Var A and Var B for each month.**')
-    
+    st.write("""
+    Var A: 
+    - The lowest mean grouped by month is in July with 709.1 and the highest is December with 940.
+    - The lowest range grouped by month is December with 39 and the highest is June with 722. 
+    Since range is influenced by outliers, there are outliers in the month of June, July and August. 
+    This can be confirmed by IQR method later.
+
+    Var B:
+    - The lowest mean grouped by month is 807.9 and highest is 990.1 in 2015 and 2018 respectively.
+    - The lowest range grouped by month is 177 and highest is 656 in March and June respectively.
+    Since range in influenced by outliers, there are outliers in the month of June, July and August for Var B.
+    This can be confirmed by IQR method later.
+        """)
+
     image_stats = Image.open('./plots/descriptive/monthly_stats.jpg')
     st.image(image_stats, width=650, caption='Descriptive statistics of Var A and Var B for each month')
 
