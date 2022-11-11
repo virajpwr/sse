@@ -55,7 +55,7 @@ if genre == 'Statistics':
         './plots/descriptive/skewness.jpg')
     st.image(image_stats, width=250, caption='distribution of Var A and Var B')
 
-    st.markdown(**The fig below show the discriptive statistics of Var A and Var B for each year.**)
+    st.markdown('**The fig below show the discriptive statistics of Var A and Var B for each year.**')
 
     image_stats = Image.open('./plots/descriptive/yearly_stats.jpg')
 
