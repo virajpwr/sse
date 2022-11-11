@@ -128,7 +128,7 @@ if genre == 'Statistics':
     - Performed Kruskal-Wallis non parametric test to test if the Var A in different months have the same central tendency.
     - Non-parametric test is performed since the distribution of var A and Var B in different months does not follow normal distribution.
     - The null hypthesis is that mean ranks of the years are same.
-    - Based on the table below we can say that the months have different distributions for Var A and Var B.
+    - Based on the table below the H statistics and p-value suggest that the months have different distributions for Var A and Var B.
     """)
     image_stats = Image.open(
         './plots/descriptive/anova2.jpg')
