@@ -48,8 +48,8 @@ if genre == 'Statistics':
     st.write("""
     Distribution of population
     - The skewness suggest that Var A and Var B are not skewed.
-    - Kurtosis of Var A value 4.32 > 3 suggest there are outliers.
-    - Kurtosis of Var B suggest negative kurtosis.
+    - Kurtosis of Var A value 4.32 > 3 suggest there are outliers. The kurtosis of Var A suggests heavy tail or leptokurtic.
+    - The positive values of kurtosis suggest that the data are heavy-tailed relative to a normal distribution.
     """)
     image_stats = Image.open(
         './plots/descriptive/skewness.jpg')
