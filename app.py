@@ -114,7 +114,11 @@ if genre == 'Statistics':
         './plots/descriptive/ttest.jpg')
     st.image(image_stats, width=600, caption='t-test')
     st.markdown('ANOVA')
-    st.write("Performed one way ANOVA to see if there is significant difference in year and month for variable Var A and Var B with alpha=0.05.")
+    st.write("""
+    - Performed ANOVA to check if the means of Var A and Var B are significantly different for year 2010 - 2019 with alpa = 0.05.
+    - Since Var A and Var B does not voilate the assumption of normality in different years, we can use ANOVA.
+    - there is no statistically significant difference in means for variable Var A in different years and while there is a statistically significant difference in the means of Var B in different years at alpha = 0.05.
+    """)
     st.write('From the test result of One way ANOVA test shown below, there is no significant difference in the means of Var A for the years 2010 to 2019. However, there is a significant difference in the means of Var A for the months Jan to Dec.')
     image_stats = Image.open(
         './plots/descriptive/anova.jpg')
