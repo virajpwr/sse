@@ -267,10 +267,10 @@ if genre == 'outliers and transformation':
              caption='Trend of log tranformed Var A and Var B')
     image_stats = Image.open('./plots/descriptive/vara_log.jpg')
     st.image(image_stats, width=700,
-             caption='Distributio log tranformed Var A and Var A')
+             caption='Distribution of Var A and log tranformed Var A')
     image_stats = Image.open('./plots/descriptive/varb_log.jpg')
     st.image(image_stats, width=700,
-             caption='Distributio log tranformed Var B and Var B')
+             caption='Distribution of Var B and log tranformed Var B')
     st.text('------------------------------------- Imputing outliers with median ---------------------------------------------')
     st.markdown('Imputing outliers with median')
     st.write("""
